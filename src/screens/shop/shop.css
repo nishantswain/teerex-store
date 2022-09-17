@@ -1,8 +1,16 @@
 @media (min-width: 30em) {
   .sp-container {
     background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
   }
-
+  .sp-free-text-filter {
+    background-color: rgb(109, 79, 34);
+    margin: 0 auto;
+    text-align: center;
+    height: 100%;
+  }
   .sp-main-area {
     display: flex;
     flex-direction: row;

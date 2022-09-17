@@ -1,12 +1,12 @@
-import Input from 'antd/lib/input/Input'
+import { Input, Button } from 'antd'
 import React from 'react'
-
+import './textFilter.css'
 function FreeTextFilter() {
     return (
-        <div>
-            <h3>FreeTextFilter
-                <Input />
-            </h3>
+        <div className='free-text-filter'>
+
+            <Input />
+            <Button>Search</Button>
 
         </div>
     )

@@ -7,10 +7,16 @@ import Home from './screens/home/home';
 import Shop from './screens/shop/shop';
 import Cart from './screens/cart/cart';
 import Product from './components/Product/product';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react';
+import { fetchProducts } from './redux/actions/actions';
+
+
 function App() {
-  const state = useSelector((state) => state)
-  console.log(state)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchProducts())
+  }, [])
   return (
     <div className="App">
 

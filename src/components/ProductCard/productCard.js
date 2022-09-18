@@ -1,7 +1,7 @@
 import { Button, Card } from 'antd';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { CART } from '../../redux/actions/action-types';
+import { CART, PRODUCT } from '../../redux/actions/action-types';
 const { Meta } = Card;
 
 const productSelector = (state, id) => {
@@ -26,6 +26,10 @@ function ProductCard({ id }) {
 
     const addToCartHandler = () => {
         dispatch({
+            type: PRODUCT.DECREASE_QUANTITY,
+            payload: id
+        })
+        dispatch({
             type: CART.ADD_ITEM,
             payload: id
         })
@@ -42,6 +46,7 @@ function ProductCard({ id }) {
             <Meta title={name} />
             <div className='pc-price-add-container'>
                 <h3>{'RS ' + price}</h3>
+                <h3>{quantity}</h3>
 
                 <div className='pc-operations-button'>
                     {!isPresentInCart && <Button className='pc-add-to-cart-button' onClick={() => { addToCartHandler() }} disabled={quantity === 0}>Add to cart</Button>}

@@ -2,18 +2,27 @@ export const applyFilters = (allProducts, filterState) => {
 
     const { Colour, Gender, Price, Type, FreeText } = filterState
     let allProductsTemp = allProducts
+
     let textArray = FreeText.value.toLowerCase().split(" ")
-    textArray = textArray.map((item) => item === '' ? null : item)
-    let uniqueSet = new Set()
-    //color
+    textArray.forEach((item, idx) => {
+        if (item === '')
+            textArray.splice(idx, 1)
+    })
+
+    //filter by colour
     let selectedColours = Colour.reduce((acc, item) => {
         if (item.selected) acc.push(item.color.toLowerCase())
         return acc
     }, [])
+
     selectedColours = [...selectedColours, ...textArray]
     if (selectedColours.length > 0) {
+        console.log("hi")
         let tempresult = allProducts.filter((item) => selectedColours.includes(item.color.toLowerCase()))
-        if (tempresult.length > 0) {
+        if (tempresult.length === 0) {
+            return []
+        }
+        else {
             allProductsTemp = tempresult
         }
     }
@@ -25,7 +34,10 @@ export const applyFilters = (allProducts, filterState) => {
     selectedGender = [...selectedGender, ...textArray]
     if (selectedGender.length > 0) {
         let tempresult = allProductsTemp.filter((item) => selectedGender.includes(item.gender.toLowerCase()))
-        if (tempresult.length > 0) {
+        if (tempresult.length === 0) {
+            return []
+        }
+        else {
             allProductsTemp = tempresult
         }
     }
@@ -38,8 +50,10 @@ export const applyFilters = (allProducts, filterState) => {
     selectedType = [...selectedType, ...textArray]
     if (selectedType.length > 0) {
         let tempresult = allProductsTemp.filter((item) => selectedType.includes(item.type.toLowerCase()))
-        console.log("temp res type", tempresult)
-        if (tempresult.length > 0) {
+        if (tempresult.length === 0) {
+            return []
+        }
+        else {
             allProductsTemp = tempresult
         }
     }
@@ -49,32 +63,26 @@ export const applyFilters = (allProducts, filterState) => {
         if (item.selected) acc.push([item.start, item.end])
         return acc
     }, [])
-
+    console.log("s-ps", selectedPrices)
     if (selectedPrices.length > 0) {
         let tempresult = []
         allProductsTemp.forEach((item) => {
             for (let i = 0; i < selectedPrices.length; i++) {
                 let [start, end] = selectedPrices[i]
-                if (start && end && item.price >= start && item.price <= end)
+                if (end && start && item.price >= Number(start) && item.price <= Number(end))
                     tempresult.push(item)
-                else if (!end && start && item.price >= start)
+                else if (end == null && start && item.price >= Number(start))
                     tempresult.push(item)
-
             }
         }
         )
-        if (tempresult.length > 0) {
-            allProductsTemp = tempresult
-        }
+        return tempresult
     }
-    allProductsTemp.forEach(element => {
-        uniqueSet.add(element.id)
-    });
+    console.log("yo")
+    if (allProductsTemp.length > 0) {
+        return allProductsTemp
+    }
 
-    let idArray = new Array(...uniqueSet)
-    if (idArray.length > 0) {
-        return allProducts.filter(product => idArray.includes(product.id))
-    }
     return allProducts
 
 }

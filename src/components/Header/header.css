@@ -2,7 +2,7 @@
   height: 10vh;
   display: flex;
   justify-content: space-between;
-  padding: 1rem 2rem;
+  padding: 1rem 2.5rem;
   box-shadow: 1px 5px 15px rgba(0, 0, 0, 0.35);
 }
 .home > a,
@@ -11,4 +11,5 @@
   text-decoration: none;
   color: black;
   all: unset;
+  font-size: 1.4em;
 }

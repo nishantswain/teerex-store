@@ -1,0 +1,20 @@
+.home-page {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.home-page > div {
+  all: unset;
+  box-shadow: 1px 1px 5px;
+  width: 5rem;
+  line-height: 2rem;
+  text-align: center;
+  cursor: pointer;
+}
+.home-page > div > a {
+  text-decoration: none;
+  color: black;
+}

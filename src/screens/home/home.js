@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './home.css'
 function Home() {
     return (
-        <div>Welcome to teerex store
+        <div className='home-page'>
+            <h2>Welcome to teerex store</h2>
             <div>
                 <Link to={'/products'}>Products</Link>
             </div>

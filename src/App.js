@@ -1,13 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header/header';
-import FreeTextFilter from './components/FreeTextFilter/freeTextFilter';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './screens/home/home';
 import Shop from './screens/shop/shop';
 import Cart from './screens/cart/cart';
 import Product from './components/Product/product';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, } from 'react-redux'
 import { useEffect } from 'react';
 import { fetchProducts } from './redux/actions/actions';
 

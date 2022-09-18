@@ -71,7 +71,7 @@ function ProductFilter() {
                                         onChangeHandler(name, value, checked)
                                     }}
                                 >
-                                    {item.end ? (item.start + ' ') + '-' + item.end : item.start}
+                                    {item.end ? `${item.start} - ${item.end}` : item.start}
                                 </Checkbox></div>)
                     }
                 </div>

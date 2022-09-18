@@ -1,13 +1,9 @@
-import { Button, Card, Input } from 'antd'
+import { Button, Input } from 'antd'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { CART, PRODUCT } from '../../redux/actions/action-types'
 import { productSelector } from '../../redux/selectors/productSelectors'
 import './cartItem.css'
-const gridStyle = {
-    width: '25%',
-    textAlign: 'center',
-};
 
 function CartItem({ id, quantity }) {
     const dispatch = useDispatch()
@@ -47,18 +43,18 @@ function CartItem({ id, quantity }) {
     return (
         <div className='cart-item'>
             <div>
-
                 <img
                     alt={name}
                     src={imageURL}
-                    width={100} />
+                    width={100}
+                    height={100} />
 
             </div>
             <div >
                 <h3>{name}</h3>
                 <h3>{"Rs " + Number(price) * Number(quantity)}</h3>
             </div>
-            <div >
+            <div  >
                 <Input disabled value={`Qty: ${quantity}`} />
             </div>
             <div className='pc-operations-button'>

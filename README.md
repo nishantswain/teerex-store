@@ -1,2 +1,2 @@
 #deploy-url
-https://app.netlify.com/sites/resplendent-boba-72207b/deploys
+https://resplendent-boba-72207b.netlify.app/

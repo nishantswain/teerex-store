@@ -1,19 +1,39 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-function header() {
+import './header.css'
+import { useSelector } from 'react-redux'
+
+const selectTotalCartQuantity = (state) => {
+
+    return state.cartState.cartItems.length
+
+
+}
+function Header() {
+    let totalCartQuantity = useSelector(selectTotalCartQuantity)
+
     return (
-        <div>header
-            <div className='nav-bar'>
+        <div className='teerex-navbar'>
+            <div className='home'>
                 <Link to={'/'}>
                     Home
                 </Link>
-                <Link to={'/cart'}>
-                    cart
-                </Link>
+            </div>
+            <div className='products-cart' style={{ display: "flex", gap: 10, flexDirection: 'row' }}>
+                <div>
+                    <Link to={'/products'}>
+                        Products
+                    </Link>
+                </div>
+                <div>
+                    <Link to={'/cart'}>
+                        ShoppingCart {`(${totalCartQuantity})`}
+                    </Link>
+                </div>
             </div>
 
-        </div>
+        </div >
     )
 }
 
-export default header
+export default Header

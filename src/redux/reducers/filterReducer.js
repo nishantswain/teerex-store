@@ -50,7 +50,8 @@ const updateFilters = (filterState, payload) => {
         }
     }
     else if (category === 'FreeText') {
-        filterState.FreeText = value
+        let newValue = { value }
+        return { ...filterState, FreeText: newValue }
     }
     return filterState
 }

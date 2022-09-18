@@ -1,0 +1,6 @@
+.teerex-navbar {
+  height: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 1rem;
+}

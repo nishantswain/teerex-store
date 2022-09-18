@@ -37,5 +37,7 @@ export const filterState = {
         { type: 'Basic', selected: false },
 
     ],
-    FreeText: ''
+    FreeText: {
+        value: ''
+    }
 }

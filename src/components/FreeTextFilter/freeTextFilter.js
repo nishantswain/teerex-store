@@ -1,12 +1,28 @@
 import { Input, Button } from 'antd'
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { FILTER } from '../../redux/actions/action-types'
 import './textFilter.css'
-function FreeTextFilter() {
+function FreeTextFilter(value) {
+    const [searchText, setSearchText] = useState('')
+    const dispatch = useDispatch()
+    const onSearchClickHandler = () => {
+        console.log(searchText)
+        dispatch({
+            type: FILTER.UPDATE_FILTERS,
+            payload: {
+                category: "FreeText",
+                value: searchText
+            }
+        })
+    }
     return (
         <div className='free-text-filter'>
 
-            <Input />
-            <Button>Search</Button>
+            <Input value={searchText} onChange={({ target: { value } }) => {
+                setSearchText(value)
+            }} />
+            <Button onClick={() => { onSearchClickHandler() }}>Search</Button>
 
         </div>
     )

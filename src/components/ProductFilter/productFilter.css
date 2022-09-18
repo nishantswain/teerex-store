@@ -1,14 +1,14 @@
 @media (min-width: 40em) {
   .product-filter-container {
-    border: 1px solid grey;
     padding: 1em;
-    background-color: rgb(250, 246, 246);
+    box-sizing: border-box;
+    box-shadow: 1px 1px 4px rgb(175, 169, 176);
     height: 100%;
+    border-radius: 2%;
+    width: 100%;
   }
   .product-filter-container > div {
     display: flex;
     flex-direction: column;
-  }
-  .product-filter-container > div > .ant-checkbox-wrapper {
   }
 }

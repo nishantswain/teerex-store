@@ -1,13 +1,5 @@
 export const productState = {
     allProducts: [],
-    currentProducts: [],
-    filters: {
-        Colour: [],
-        Gender: [],
-        Price: [],
-        Type: [],
-        TextFilter: ''
-    }
 }
 
 export const cartState = {

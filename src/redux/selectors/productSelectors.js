@@ -1,8 +1,8 @@
-export const productSelector = (state, id) => {
-    let { allProducts } = state.productState
+export const productSelector = (productState, cartState, id) => {
+    let { allProducts } = productState
     let product = allProducts.find((product) => product.id === id)
 
-    let { cartItems } = state.cartState
+    let { cartItems } = cartState
     let cartQuantity = 0, isPresentInCart = false
 
     let itemInCart = cartItems.find((cartItem) => cartItem.id === id)

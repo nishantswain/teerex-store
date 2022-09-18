@@ -34,7 +34,10 @@ const decreaseQuantity = (state, id) => {
     let { cartItems } = state
     let itemIndex = cartItems.findIndex((item) => item.id === id)
     if (itemIndex > -1) {
-        cartItems[itemIndex].quantity--
+        if (cartItems[itemIndex].quantity > 1)
+            cartItems[itemIndex].quantity--
+        else
+            cartItems = cartItems.filter((item) => item.id !== id)
     }
     return { ...state, cartItems }
 }

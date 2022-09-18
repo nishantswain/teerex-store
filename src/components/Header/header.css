@@ -1,6 +1,14 @@
 .teerex-navbar {
-  height: 2.5rem;
+  height: 10vh;
   display: flex;
   justify-content: space-between;
-  margin: 0 1rem;
+  padding: 1rem 2rem;
+  box-shadow: 1px 5px 15px rgba(0, 0, 0, 0.35);
+}
+.home > a,
+.products > a,
+.cart > a {
+  text-decoration: none;
+  color: black;
+  all: unset;
 }

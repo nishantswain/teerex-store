@@ -19,7 +19,7 @@ function FreeTextFilter(value) {
     return (
         <div className='free-text-filter'>
 
-            <Input value={searchText} onChange={({ target: { value } }) => {
+            <Input value={searchText} placeholder={"Search for products..."} onChange={({ target: { value } }) => {
                 setSearchText(value)
             }} />
             <Button onClick={() => { onSearchClickHandler() }}>Search</Button>

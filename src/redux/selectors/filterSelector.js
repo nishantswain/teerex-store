@@ -9,15 +9,32 @@ export const applyFilters = (allProducts, filterState) => {
             textArray.splice(idx, 1)
     })
 
+    if (textArray.length > 0) {
+        console.log(textArray, "**")
+        allProductsTemp = allProducts.filter((item) => {
+            console.log(textArray.includes(item.color.toLowerCase()))
+            if (
+                textArray.includes(item.color.toLowerCase())
+            )
+                return true
+            else if (textArray.includes(item.name.toLowerCase()))
+                return true
+            else if (textArray.includes(item.type.toLowerCase()))
+                return true
+            return false
+        })
+        console.log(allProductsTemp)
+    }
     //filter by colour
     let selectedColours = Colour.reduce((acc, item) => {
         if (item.selected) acc.push(item.color.toLowerCase())
         return acc
     }, [])
 
-    selectedColours = [...selectedColours, ...textArray]
+    selectedColours = [...selectedColours,]
     if (selectedColours.length > 0) {
-        let tempresult = allProducts.filter((item) => selectedColours.includes(item.color.toLowerCase()))
+        // console.log(selectedColours, "**")
+        let tempresult = allProductsTemp.filter((item) => selectedColours.includes(item.color.toLowerCase()))
         if (tempresult.length === 0) {
             return []
         }
@@ -30,7 +47,7 @@ export const applyFilters = (allProducts, filterState) => {
         if (item.selected) acc.push(item.gender.toLowerCase())
         return acc
     }, [])
-    selectedGender = [...selectedGender, ...textArray]
+    selectedGender = [...selectedGender,]
     if (selectedGender.length > 0) {
         let tempresult = allProductsTemp.filter((item) => selectedGender.includes(item.gender.toLowerCase()))
         if (tempresult.length === 0) {
@@ -46,7 +63,7 @@ export const applyFilters = (allProducts, filterState) => {
         if (item.selected) acc.push(item.type.toLowerCase())
         return acc
     }, [])
-    selectedType = [...selectedType, ...textArray]
+    selectedType = [...selectedType,]
     if (selectedType.length > 0) {
         let tempresult = allProductsTemp.filter((item) => selectedType.includes(item.type.toLowerCase()))
         if (tempresult.length === 0) {
@@ -77,8 +94,10 @@ export const applyFilters = (allProducts, filterState) => {
         return tempresult
     }
     if (allProductsTemp.length > 0) {
+
         return allProductsTemp
     }
+
 
     return allProducts
 

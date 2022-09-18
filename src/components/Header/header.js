@@ -12,7 +12,7 @@ function Header() {
             <div className='home'>
 
                 <Link to={'/'}>
-                    Home
+                    TeeRex Store
                 </Link>
             </div>
             <div className='products-cart' style={{ display: "flex", gap: 10, flexDirection: 'row' }}>

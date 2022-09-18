@@ -43,7 +43,7 @@ function ProductCard({ id }) {
             <Meta title={name} />
             <div className='pc-price-add-container'>
                 <h3>{'RS ' + price}</h3>
-                <h3>{`quantity: ` + quantity}</h3>
+                {quantity > 0 ? <h3>{`quantity: ` + quantity}</h3> : <h3>Out of stock</h3>}
 
                 <div className='pc-operations-button'>
                     {!isPresentInCart && <Button className='pc-add-to-cart-button' onClick={() => { addToCartHandler() }} disabled={quantity === 0}>Add to cart</Button>}

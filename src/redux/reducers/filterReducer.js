@@ -6,7 +6,7 @@ export const filterReducer = (state = filterState, { type, payload }) => {
         case FILTER.UPDATE_FILTERS:
             return updateFilters(state, payload)
         case FILTER.RESET_FILTERS:
-            return filterState
+            return { ...filterState }
         default:
             return state
     }

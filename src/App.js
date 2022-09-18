@@ -9,12 +9,11 @@ import { useDispatch, } from 'react-redux'
 import { useEffect } from 'react';
 import { fetchProducts } from './redux/actions/actions';
 
-const dummy = "dummy"
 function App() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchProducts())
-  }, [dummy])
+  })
   return (
     <div className="App">
 

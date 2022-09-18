@@ -7,7 +7,6 @@ function FreeTextFilter(value) {
     const [searchText, setSearchText] = useState('')
     const dispatch = useDispatch()
     const onSearchClickHandler = () => {
-        console.log(searchText)
         dispatch({
             type: FILTER.UPDATE_FILTERS,
             payload: {

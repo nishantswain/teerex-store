@@ -5,7 +5,6 @@ import CartItem from '../CartItem/cartItem'
 function CartList() {
     const cartState = useSelector(state => state.cartState)
     const { cartItems } = cartState
-    console.log("&&", cartItems)
     return (
         <div className='cart-list'>
             {

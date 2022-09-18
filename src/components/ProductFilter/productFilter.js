@@ -32,7 +32,6 @@ function ProductFilter() {
                                     value={item.color}
                                     checked={item.selected}
                                     onChange={({ target: { value, name, checked } }) => {
-                                        // console.log(name, value, checked)
                                         onChangeHandler(name, value, checked)
                                     }}
                                     name={'Colour'}>{item.color}</Checkbox></div>)

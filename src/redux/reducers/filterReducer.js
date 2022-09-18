@@ -2,7 +2,6 @@ import { FILTER } from "../actions/action-types";
 import { filterState } from "../initialStates/initialStates";
 
 export const filterReducer = (state = filterState, { type, payload }) => {
-    // console.log(st)
     switch (type) {
         case FILTER.UPDATE_FILTERS:
             return updateFilters(state, payload)

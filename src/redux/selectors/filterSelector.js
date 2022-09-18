@@ -17,7 +17,6 @@ export const applyFilters = (allProducts, filterState) => {
 
     selectedColours = [...selectedColours, ...textArray]
     if (selectedColours.length > 0) {
-        console.log("hi")
         let tempresult = allProducts.filter((item) => selectedColours.includes(item.color.toLowerCase()))
         if (tempresult.length === 0) {
             return []
@@ -63,7 +62,6 @@ export const applyFilters = (allProducts, filterState) => {
         if (item.selected) acc.push([item.start, item.end])
         return acc
     }, [])
-    console.log("s-ps", selectedPrices)
     if (selectedPrices.length > 0) {
         let tempresult = []
         allProductsTemp.forEach((item) => {
@@ -78,7 +76,6 @@ export const applyFilters = (allProducts, filterState) => {
         )
         return tempresult
     }
-    console.log("yo")
     if (allProductsTemp.length > 0) {
         return allProductsTemp
     }

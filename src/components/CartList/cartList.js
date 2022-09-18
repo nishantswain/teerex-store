@@ -7,10 +7,10 @@ function CartList() {
     const { cartItems } = cartState
     return (
         <div className='cart-list'>
-            {
+            {cartItems.length > 0 ?
                 cartItems.map((item, idx) => {
                     return <CartItem key={idx} {...item} />
-                })
+                }) : (<h3>Your cart is empty</h3>)
             }
         </div>
     )

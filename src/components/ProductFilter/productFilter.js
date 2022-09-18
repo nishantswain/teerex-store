@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Checkbox } from 'antd'
 import './productFilter.css'
 import { useSelector, useDispatch } from 'react-redux'

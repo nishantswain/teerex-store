@@ -10,9 +10,7 @@ export const applyFilters = (allProducts, filterState) => {
     })
 
     if (textArray.length > 0) {
-        console.log(textArray, "**")
         allProductsTemp = allProducts.filter((item) => {
-            console.log(textArray.includes(item.color.toLowerCase()))
             if (
                 textArray.includes(item.color.toLowerCase())
             )
@@ -23,7 +21,6 @@ export const applyFilters = (allProducts, filterState) => {
                 return true
             return false
         })
-        console.log(allProductsTemp)
     }
     //filter by colour
     let selectedColours = Colour.reduce((acc, item) => {
@@ -33,7 +30,6 @@ export const applyFilters = (allProducts, filterState) => {
 
     selectedColours = [...selectedColours,]
     if (selectedColours.length > 0) {
-        // console.log(selectedColours, "**")
         let tempresult = allProductsTemp.filter((item) => selectedColours.includes(item.color.toLowerCase()))
         if (tempresult.length === 0) {
             return []
